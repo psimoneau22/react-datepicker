@@ -4,13 +4,18 @@ var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
     entry: {
-        vendor: ["react", "react-dom"],
         datePicker: "./src/datePicker.jsx",
     },
     output: {
-        path: path.resolve(__dirname, "lib"),
-        filename: "[name].js"
+        path: "lib",
+        filename: "[name].js",
+        libraryTarget: "umd",
+		library: "[name]"
     },
+    externals: {
+		"react": "react",
+		"react-dom": "react-dom"
+	},
     module: {
         loaders: [
             {
@@ -25,11 +30,5 @@ module.exports = {
     },
     resolve: {
         extensions: ["", ".js", ".jsx"]
-    },
-    plugins: [
-        new CommonsChunkPlugin({
-            name: "vendor",
-            filename: "[name].js"
-        })
-    ]
+    }
 }
