@@ -1,13 +1,12 @@
 var webpack = require("webpack")
 var path = require("path")
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
     entry: {
         datePicker: "./src/datePicker.jsx",
     },
     output: {
-        path: "lib",
+        path: "dist",
         filename: "[name].js",
         libraryTarget: "umd",
 		library: "[name]"
