@@ -1,0 +1,78 @@
+.datepicker .popup {            
+    position: absolute;
+    border: 1px solid black;
+    padding: 3px;
+    background-color: white;
+}
+
+.datepicker .popup .today {            
+    color: white;
+    background-color: #77B800;
+    border: none;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.datepicker .popup .today:hover {      
+    background-color: #578404 ;
+}
+
+.datepicker .header {
+    background-color: #888e90;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.datepicker .header a {
+    color: black;
+    cursor: pointer;
+}
+
+.datepicker .header a.left  {
+    float: left;
+    padding-left: 10px;
+}
+
+.datepicker .header a.right  {
+    float: right;
+    padding-right: 10px;
+}
+
+.datepicker .header select {
+    width: 25%
+}
+
+.datepicker .calendar table {
+    border-collapse: collapse;
+}
+
+.datepicker .calendar th {
+    padding: .7em .3em;
+}
+
+.datepicker .calendar .dayname {
+    font-weight: bold;
+    width: 25px;
+    text-align: center;
+}
+
+.datepicker .calendar .day a {
+    background-color: #D2D3D2;
+    text-decoration: none;
+    color: #555555;
+    font-weight: bold;
+    text-align: right;
+    display: block;
+    padding: .2em;
+    border: 1px solid #aaaaaa;
+    cursor: pointer;
+}
+
+.datepicker .calendar .day a:hover {
+    background-color: #999b9a;
+    color: #212121
+}
+
+.datepicker .calendar .day a.selected {
+    background-color: #77b800
+}
