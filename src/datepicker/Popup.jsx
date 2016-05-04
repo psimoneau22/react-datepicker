@@ -10,7 +10,34 @@ export default class Popup extends React.Component {
             selectedMonth: props.date.getMonth()
         }
     }
-    handlePrevious(){
+    handleClickOutside(e) {
+        if(!this.root){
+            return
+        }
+        
+        let current = e.target;
+        do {
+            if(current == this.root){
+                return;
+            }
+            current = current.parentNode
+        } while (current)
+        
+        this.props.onClose();
+    }
+    componentDidMount(){
+        document.body.addEventListener("click", this.handleClickOutside.bind(this))
+    }
+    componentWillUnmount(){
+        document.body.removeEventListener("click", this.handleClickOutside)
+    }
+    componentWillReceiveProps(props){          
+        this.state = {
+            selectedYear: props.date.getFullYear(),
+            selectedMonth: props.date.getMonth()
+        }  
+    }
+    handlePrevious() {
         let nextMonth = this.state.selectedMonth - 1;
         let nextYear = this.state.selectedYear;
         if(nextMonth < 0){
@@ -48,7 +75,7 @@ export default class Popup extends React.Component {
         
         if(!this.props.isOpen ) return null;
         
-        return  <div className="popup">
+        return  <div ref={(div) => {this.root = div} } className="popup" >
                     <Header 
                         selectedYear={this.state.selectedYear} 
                         selectedMonth={this.state.selectedMonth} 

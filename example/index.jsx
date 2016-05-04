@@ -1,6 +1,6 @@
 import React from "react"
 import { render } from "react-dom"
-import DatePicker from "datepicker-test"
+import DatePicker from "../dist/datepicker"
 
 export default class Example extends React.Component {
     constructor(props){
